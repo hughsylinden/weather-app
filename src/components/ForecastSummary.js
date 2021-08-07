@@ -20,7 +20,7 @@ const ForecastSummary = (props) => {
       <button
         type="button"
         onClick={() => onSelect(date)}
-        className="forecast-summary__description-button"
+        className="forecast-summary__description"
       >
         More details
       </button>
@@ -29,17 +29,17 @@ const ForecastSummary = (props) => {
 };
 
 ForecastSummary.propTypes = {
-  date: PropTypes.number,
+  date: PropTypes.number.isRequired,
   temperature: PropTypes.shape({
     min: PropTypes.number,
     max: PropTypes.number,
-  }),
-  description: PropTypes.string,
-  icon: PropTypes.string,
-  onSelect: PropTypes.func,
+  }).isRequired,
+  description: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };
 
-ForecastSummary.defaultProps = {
+/* ForecastSummary.defaultProps = {
   date: 0,
   temperature: PropTypes.shape({
     min: -60,
@@ -48,6 +48,6 @@ ForecastSummary.defaultProps = {
   description: "",
   icon: "",
   onSelect: () => {},
-};
+}; */
 
 export default ForecastSummary;

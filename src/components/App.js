@@ -32,25 +32,21 @@ App.propTypes = {
   location: PropTypes.shape({
     city: PropTypes.string,
     country: PropTypes.string,
-  }),
+  }).isRequired,
   forecasts: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.number,
       temperature: PropTypes.shape({
         min: PropTypes.number,
         max: PropTypes.number,
-      }),
-      description: PropTypes.string,
-      icon: PropTypes.string,
+      }).isRequired,
+      description: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
     })
   ),
 };
 
 App.defaultProps = {
-  location: PropTypes.shape({
-    city: "Glasgow",
-    country: "United Kingdom",
-  }),
   forecasts: PropTypes.arrayOf({
     date: 0,
     temperature: PropTypes.shape({

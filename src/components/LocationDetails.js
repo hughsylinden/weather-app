@@ -12,13 +12,8 @@ const LocationDetails = ({ city, country }) => {
 };
 
 LocationDetails.propTypes = {
-  city: PropTypes.string,
-  country: PropTypes.string,
-};
-
-LocationDetails.defaultProps = {
-  city: "Glasgow",
-  country: "Scotland",
+  city: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
 };
 
 export default LocationDetails;

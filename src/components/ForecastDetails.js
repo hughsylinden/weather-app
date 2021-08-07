@@ -37,14 +37,14 @@ ForecastDetails.propTypes = {
     temperature: PropTypes.shape({
       min: PropTypes.number,
       max: PropTypes.number,
-    }),
-    description: PropTypes.string,
-    icon: PropTypes.string,
+    }).isRequired,
+    description: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
     wind: PropTypes.shape({
       speed: PropTypes.number,
       direction: PropTypes.string,
-    }),
-    humidity: PropTypes.number,
+    }).isRequired,
+    humidity: PropTypes.number.isRequired,
   }),
 };
 

@@ -27,12 +27,12 @@ ForecastSummaries.propTypes = {
       temperature: PropTypes.shape({
         min: PropTypes.number,
         max: PropTypes.number,
-      }),
-      description: PropTypes.string,
-      icon: PropTypes.string,
+      }).isRequired,
+      description: PropTypes.string.isRequired,
+      icon: PropTypes.string.isRequired,
     })
   ),
-  onForecastSelect: PropTypes.func,
+  onForecastSelect: PropTypes.func.isRequired,
 };
 
 ForecastSummaries.defaultProps = {
@@ -45,6 +45,5 @@ ForecastSummaries.defaultProps = {
     description: "",
     icon: "",
   }),
-  onForecastSelect: () => {},
 };
 export default ForecastSummaries;
