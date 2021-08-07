@@ -13,7 +13,10 @@ const ForecastDetails = ({ forecast }) => {
       <div className="forecast-details__icon" data-testid="forecast-icon">
         <WeatherIcon name="owm" iconId={icon} />
       </div>
-      <div className="forecast-details__temperature">
+      <div
+        className="forecast-details__temperature"
+        data-testid="forecast-temperature"
+      >
         Max:{temperature.max}&#176;C
         <br />
         Min:{temperature.min}&#176;C
