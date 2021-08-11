@@ -11,7 +11,7 @@ const ForecastDetails = ({ forecast }) => {
         {moment(date).format("ddd Do MMM")}
       </div>
       <div className="forecast-details__icon" data-testid="forecast-icon">
-        <WeatherIcon name="owm" iconId={icon} />
+        <WeatherIcon name="owm" iconId={icon.toString()} />
       </div>
       <div
         className="forecast-details__temperature"
@@ -39,7 +39,7 @@ ForecastDetails.propTypes = {
       max: PropTypes.number,
     }).isRequired,
     description: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.number.isRequired,
     wind: PropTypes.shape({
       speed: PropTypes.number,
       direction: PropTypes.string,
@@ -56,7 +56,7 @@ ForecastDetails.defaultProps = {
       max: 60,
     }),
     description: "",
-    icon: "800",
+    icon: 800,
     wind: PropTypes.shape({
       speed: 0,
       direction: "",

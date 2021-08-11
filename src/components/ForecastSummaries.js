@@ -12,7 +12,7 @@ const ForecastSummaries = ({ forecasts, onForecastSelect }) => {
           date={forecast.date}
           temperature={forecast.temperature}
           description={forecast.description}
-          icon={forecast.icon}
+          icon={forecast.icon.toString()}
           onSelect={onForecastSelect}
         />
       ))}
@@ -29,7 +29,7 @@ ForecastSummaries.propTypes = {
         max: PropTypes.number,
       }).isRequired,
       description: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
+      icon: PropTypes.number.isRequired,
     })
   ),
   onForecastSelect: PropTypes.func.isRequired,
@@ -43,7 +43,7 @@ ForecastSummaries.defaultProps = {
       max: 60,
     }),
     description: "",
-    icon: "",
+    icon: 800,
   }),
 };
 export default ForecastSummaries;

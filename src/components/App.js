@@ -1,12 +1,22 @@
 import "../styles/App.css";
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
 import LocationDetails from "./LocationDetails";
 import ForecastSummaries from "./ForecastSummaries";
 import ForecastDetails from "./ForecastDetails";
+import SearchForm from "./SearchForm";
+import getForecast from "../requests/getForecast";
 
-function App({ location, forecasts }) {
-  const [selectedDate, setSelectedDate] = useState(forecasts[0].date);
+function App() {
+  const [forecasts, setForecasts] = useState([]);
+  const [location, setLocation] = useState({ city: "", country: "" });
+  const [selectedDate, setSelectedDate] = useState(0);
+  const [citySearch, setCitySearch] = useState("");
+  const [cityInput, setCityInput] = useState("");
+
+  useEffect(() => {
+    getForecast(setSelectedDate, setForecasts, setLocation, citySearch);
+  }, [citySearch]);
+
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
   );
@@ -14,48 +24,29 @@ function App({ location, forecasts }) {
   function handleForecastSelect(date) {
     setSelectedDate(date);
   }
+
+  function handleCitySearch() {
+    setCitySearch(cityInput);
+  }
+
+  function handleCityInput(event) {
+    setCityInput(event.target.value);
+  }
+
   return (
     <div className="weather-app">
-      {selectedDate}
       <br />
       <LocationDetails city={location.city} country={location.country} />
+      <SearchForm
+        handleCitySearch={handleCitySearch}
+        handleCityInput={handleCityInput}
+      />
       <ForecastSummaries
         forecasts={forecasts}
         onForecastSelect={handleForecastSelect}
       />
-      <ForecastDetails forecast={selectedForecast} />
+      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
     </div>
   );
 }
-
-App.propTypes = {
-  location: PropTypes.shape({
-    city: PropTypes.string,
-    country: PropTypes.string,
-  }).isRequired,
-  forecasts: PropTypes.arrayOf(
-    PropTypes.shape({
-      date: PropTypes.number,
-      temperature: PropTypes.shape({
-        min: PropTypes.number,
-        max: PropTypes.number,
-      }).isRequired,
-      description: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
-    })
-  ),
-};
-
-App.defaultProps = {
-  forecasts: PropTypes.arrayOf({
-    date: 0,
-    temperature: PropTypes.shape({
-      min: -60,
-      max: 60,
-    }),
-    description: "",
-    icon: "",
-  }),
-};
-
 export default App;
