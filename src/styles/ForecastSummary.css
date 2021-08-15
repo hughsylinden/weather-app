@@ -3,3 +3,20 @@
   background: #66748A;
   border-radius: 25px;
 }
+
+.forecast-summary__button{
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  background:transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+.forecast-summary:hover{
+  background: #404756;
+  color:white;
+}
+
+.forecast-summary:hover > .forecast-summary__button{
+  color:white;
+}
+

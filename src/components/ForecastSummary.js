@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import "../styles/ForecastSummary.css";
 import React from "react";
 import PropTypes from "prop-types";
@@ -7,7 +8,12 @@ import moment from "moment";
 const ForecastSummary = (props) => {
   const { date, temperature, description, icon, onSelect } = props;
   return (
-    <div className="forecast-summary" data-testid="forecast-summary">
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    <div
+      className="forecast-summary"
+      onClick={() => onSelect(date)}
+      data-testid="forecast-summary"
+    >
       <div className="forecast-summary__date">
         {moment(date).format("ddd Do MMM")}
       </div>
@@ -25,9 +31,10 @@ const ForecastSummary = (props) => {
       <button
         type="button"
         onClick={() => onSelect(date)}
-        className="forecast-summary__description"
+        id="test"
+        className="forecast-summary__button"
       >
-        More details
+        DETAILS
       </button>
     </div>
   );
