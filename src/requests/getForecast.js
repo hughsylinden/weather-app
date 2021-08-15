@@ -1,7 +1,15 @@
 import axios from "axios";
 
-const getForecast = (setSelectedDate, setForecasts, setLocation, city) => {
-  const endpoint = `https://mcr-codes-weather-app.herokuapp.com/forecast?city=${city}`;
+const getForecast = (
+  setSelectedDate,
+  setForecasts,
+  setLocation,
+  city,
+  setErrorMessage
+) => {
+  const endpoint = city
+    ? `https://mcr-codes-weather-app.herokuapp.com/forecast?city=${city}`
+    : "https://mcr-codes-weather-app.herokuapp.com/forecast";
 
   axios
     .get(endpoint)
@@ -10,7 +18,16 @@ const getForecast = (setSelectedDate, setForecasts, setLocation, city) => {
       setForecasts(response.data.forecasts);
       setLocation(response.data.location);
     })
-    .catch(() => alert(`cannot find ${city} in database`));
+    .catch((error) => {
+      const errorResponse = error.response;
+      let errMsg = "ERROR ";
+      if (errorResponse.status === 404) {
+        errMsg += `- "${city}" is either outside the UK or does not exist`;
+      } else {
+        errMsg += `- 500 status`;
+      }
+      setErrorMessage(errMsg);
+    });
 };
 
 export default getForecast;

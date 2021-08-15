@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const SearchForm = ({ handleCitySearch, handleCityInput }) => {
   return (
-    <div className="search-form">
+    <form className="search-form">
       <input
         className="search-form__input"
         type="text"
@@ -16,7 +16,7 @@ const SearchForm = ({ handleCitySearch, handleCityInput }) => {
       >
         Search
       </button>
-    </div>
+    </form>
   );
 };
 
