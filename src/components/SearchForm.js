@@ -1,3 +1,4 @@
+import "../styles/SearchForm.css";
 import React from "react";
 import PropTypes from "prop-types";
 
@@ -9,6 +10,7 @@ const SearchForm = ({ handleCitySearch, handleCityInput }) => {
         type="text"
         onChange={handleCityInput}
       />
+      <br />
       <button
         type="submit"
         className="search-form__button"

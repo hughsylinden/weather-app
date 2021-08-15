@@ -1,3 +1,5 @@
-.img {
-  width: 1em;
+
+.wind-details{
+  display: flex;
+  padding-left: 15%;
 }

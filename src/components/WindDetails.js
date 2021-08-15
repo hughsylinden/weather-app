@@ -1,7 +1,7 @@
 import "../styles/WindDetails.css";
 import React from "react";
 import PropTypes from "prop-types";
-import arrow from "../styles/img/arrow.svg";
+import arrow from "../styles/img/arrow.png";
 
 const WindDetails = ({ speed, direction }) => {
   let rotation = "";
@@ -54,9 +54,10 @@ const WindDetails = ({ speed, direction }) => {
     rotation = 338;
   }
   const rotationStyle = `rotate(${rotation}deg)`;
+  const speedString = `${speed}ms`;
   return (
-    <div className="img">
-      {speed}ms
+    <div className="wind-details">
+      {speedString}
       <img alt="img" src={arrow} style={{ transform: rotationStyle }} />
     </div>
   );

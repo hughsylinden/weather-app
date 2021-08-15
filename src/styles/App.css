@@ -10,3 +10,9 @@
   align-items: center;
   margin-top: 50px;
 }
+.weather-app-location-search{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

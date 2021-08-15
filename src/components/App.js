@@ -50,22 +50,24 @@ function App() {
   return (
     <div className="weather-app">
       <br />
-      <LocationDetails
-        city={location.city}
-        country={location.country}
-        errorMessage={errorMessage}
-      />
-      <SearchForm
-        handleCitySearch={handleCitySearch}
-        handleCityInput={handleCityInput}
-      />
+      <span className="weather-app-location-search">
+        <LocationDetails
+          city={location.city}
+          country={location.country}
+          errorMessage={errorMessage}
+        />
+        <SearchForm
+          handleCitySearch={handleCitySearch}
+          handleCityInput={handleCityInput}
+        />
+      </span>
       {!errorMessage && (
         <>
+          {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
           <ForecastSummaries
             forecasts={forecasts}
             onForecastSelect={handleForecastSelect}
           />
-          {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
         </>
       )}
     </div>
