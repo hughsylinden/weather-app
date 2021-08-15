@@ -2,6 +2,8 @@
   padding: 5%;
   background: #66748A;
   border-radius: 25px;
+  
+  color:white;
 }
 
 .forecast-summary__button{
@@ -14,9 +16,15 @@
 .forecast-summary:hover{
   background: #404756;
   color:white;
+  cursor: pointer;
 }
 
 .forecast-summary:hover > .forecast-summary__button{
   color:white;
+  cursor: pointer;
+}
+
+button{
+  color:#66748A;
 }
 

@@ -1,3 +1,4 @@
+import "../styles/ForecastDetails.css";
 import React from "react";
 import PropTypes from "prop-types";
 import WeatherIcon from "react-icons-weather";
