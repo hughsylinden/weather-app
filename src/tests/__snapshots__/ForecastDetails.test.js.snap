@@ -12,36 +12,49 @@ exports[`ForecastDetails renders correctly 1`] = `
       Tue 1st May
     </div>
     <div
-      class="forecast-details__icon"
-      data-testid="forecast-icon"
+      class="forecast-details-bar"
     >
-      <i
-        class="wi wi-day-sunny"
-        name="owm"
-      />
-    </div>
-    <div
-      class="forecast-details__temperature"
-      data-testid="forecast-temperature"
-    >
-      Max:22°C
-      <br />
-      Min:12°C
-    </div>
-    <div
-      class="forecast-details__description"
-    >
-      stubDescription
-    </div>
-    <div
-      class="forecast-details__humidity"
-    >
-      40
-    </div>
-    <div
-      class="forecast-details__wind"
-    >
-      5ne
+      <div
+        class="forecast-details__description"
+      >
+        stubDescription
+      </div>
+      <div
+        class="forecast-details__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-day-sunny"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-details__temperature"
+        data-testid="forecast-temperature"
+      >
+        Max:22°C
+        <br />
+        Min:12°C
+      </div>
+      <div
+        class="forecast-details__wind"
+      >
+        <div
+          class="forecast-details__humidity"
+        >
+          40%
+        </div>
+        <div
+          class="wind-details"
+        >
+          5ms
+          <img
+            alt="img"
+            src="arrow.svg"
+            style="transform: rotate(45deg);"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>

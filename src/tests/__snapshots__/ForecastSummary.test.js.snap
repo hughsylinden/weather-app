@@ -30,11 +30,13 @@ exports[`ForecastSummary renders correctly 1`] = `
     >
       stubDescription
     </div>
+    <br />
     <button
-      class="forecast-summary__description"
+      class="forecast-summary__button"
+      id="test"
       type="button"
     >
-      More details
+      DETAILS
     </button>
   </div>
 </DocumentFragment>
