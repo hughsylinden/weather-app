@@ -40,6 +40,7 @@ function App() {
 
   function handleCitySearch(e) {
     e.preventDefault();
+    e.target.parentElement.firstChild.value = "";
     setCitySearch(cityInput);
   }
 

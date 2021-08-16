@@ -1,7 +1,7 @@
 import "../styles/WindDetails.css";
 import React from "react";
 import PropTypes from "prop-types";
-import arrow from "../styles/img/arrow.png";
+import arrow from "../styles/img/arrow.svg";
 
 const WindDetails = ({ speed, direction }) => {
   let rotation = "";

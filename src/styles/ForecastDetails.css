@@ -1,7 +1,11 @@
-.forecast-details{
+.forecast-details {
   border: solid;
-  border-color: #66748A;
+  border-color: #66748a;
+  background-color: #aaafb9;
   border-radius: 25px;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin: 0 10% 0 10%;
+  padding: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

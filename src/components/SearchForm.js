@@ -7,6 +7,7 @@ const SearchForm = ({ handleCitySearch, handleCityInput }) => {
     <form className="search-form">
       <input
         className="search-form__input"
+        id="search-form__input"
         type="text"
         onChange={handleCityInput}
       />

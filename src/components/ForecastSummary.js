@@ -25,9 +25,6 @@ const ForecastSummary = (props) => {
       </div>
       <div className="forecast-summary__description">{description}</div>
       <br />
-      <br />
-      <br />
-      <br />
       <button
         type="button"
         onClick={() => onSelect(date)}
