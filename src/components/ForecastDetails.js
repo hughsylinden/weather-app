@@ -6,14 +6,13 @@ import moment from "moment";
 import WindDetails from "./WindDetails";
 
 const ForecastDetails = ({ forecast }) => {
-  const { date, description, icon, temperature, humidity, wind } = forecast;
+  const { date, icon, temperature, humidity, wind } = forecast;
   return (
     <div className="forecast-details" data-testid="forecast-details">
       <div className="forecast-details__date">
         {moment(date).format("ddd Do MMM")}
       </div>
       <div className="forecast-details-bar">
-        <div className="forecast-details__description">{description}</div>
         <div className="forecast-details__icon" data-testid="forecast-icon">
           <WeatherIcon name="owm" iconId={icon.toString()} />
         </div>
@@ -25,8 +24,8 @@ const ForecastDetails = ({ forecast }) => {
           <br />
           Min:{temperature.min}&#176;C
         </div>
+        <div className="forecast-details__humidity">{humidity}%</div>
         <div className="forecast-details__wind">
-          <div className="forecast-details__humidity">{humidity}%</div>
           <WindDetails speed={wind.speed} direction={wind.direction} />
         </div>
       </div>
@@ -41,7 +40,6 @@ ForecastDetails.propTypes = {
       min: PropTypes.number,
       max: PropTypes.number,
     }).isRequired,
-    description: PropTypes.string.isRequired,
     icon: PropTypes.number.isRequired,
     wind: PropTypes.shape({
       speed: PropTypes.number,
@@ -58,7 +56,6 @@ ForecastDetails.defaultProps = {
       min: -60,
       max: 60,
     }),
-    description: "",
     icon: 800,
     wind: PropTypes.shape({
       speed: 0,
