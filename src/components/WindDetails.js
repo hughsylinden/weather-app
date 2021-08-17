@@ -25,13 +25,18 @@ const WindDetails = ({ speed, direction }) => {
   ].forEach((a, i) => {
     map1.set(a, i * 22.5);
   });
-
   const rotationStyle = `rotate(${map1.get(direction)}deg)`;
   const speedString = `${speed}ms`;
   return (
     <div className="wind-details">
       {speedString}
-      <img alt="img" src={arrow} style={{ transform: rotationStyle }} />
+      <img
+        className="wind-details__img"
+        data-testid="wind-details-image"
+        alt="img"
+        src={arrow}
+        style={{ transform: rotationStyle }}
+      />
     </div>
   );
 };

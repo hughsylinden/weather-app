@@ -5,7 +5,6 @@ import ForecastDetails from "../components/ForecastDetails";
 describe("ForecastDetails", () => {
   const validProp = {
     date: 1525132800000,
-    description: "stubDescription",
     icon: 800,
     temperature: {
       min: 12,
@@ -29,17 +28,15 @@ describe("ForecastDetails", () => {
       <ForecastDetails forecast={validProp} />
     );
 
-    expect(getByText("stubDescription")).toHaveClass(
-      "forecast-details__description"
-    );
     expect(getByTestId("forecast-icon")).toHaveClass("forecast-details__icon");
     expect(getByText("Tue 1st May")).toHaveClass("forecast-details__date");
-    expect(getByText("stubDescription")).toHaveClass(
-      "forecast-details__description"
-    );
-    expect(getByTestId("forecast-icon")).toHaveClass("forecast-details__icon");
+
     expect(getByTestId("forecast-temperature")).toHaveClass(
       "forecast-details__temperature"
+    );
+    expect(getByText("40%")).toHaveClass("forecast-details__humidity");
+    expect(getByTestId("forecast-wind-details")).toHaveClass(
+      "forecast-details__wind"
     );
   });
 });

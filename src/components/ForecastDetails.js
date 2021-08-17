@@ -8,7 +8,7 @@ import WindDetails from "./WindDetails";
 const ForecastDetails = ({ forecast }) => {
   const { date, icon, temperature, humidity, wind } = forecast;
   return (
-    <div className="forecast-details" data-testid="forecast-details">
+    <div className="forecast-details">
       <div className="forecast-details__date">
         {moment(date).format("ddd Do MMM")}
       </div>
@@ -25,7 +25,10 @@ const ForecastDetails = ({ forecast }) => {
           Min:{temperature.min}&#176;C
         </div>
         <div className="forecast-details__humidity">{humidity}%</div>
-        <div className="forecast-details__wind">
+        <div
+          className="forecast-details__wind"
+          data-testid="forecast-wind-details"
+        >
           <WindDetails speed={wind.speed} direction={wind.direction} />
         </div>
       </div>
